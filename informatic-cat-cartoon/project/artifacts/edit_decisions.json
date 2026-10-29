@@ -1,0 +1,13 @@
+{
+  "render_runtime": "remotion",
+  "composition_mode": "atelier",
+  "bespoke": {
+    "entry": "/home/user/Karel/OpenMontage/projects/informatic-cat/index.tsx",
+    "composition_id": "InformaticCat",
+    "props_path": "/home/user/Karel/OpenMontage/projects/informatic-cat/artifacts/props.json",
+    "public_dir": "/home/user/Karel/OpenMontage/projects/informatic-cat/public",
+    "art_direction": "/home/user/Karel/OpenMontage/projects/informatic-cat/art-direction.md",
+    "crf": 18,
+    "concurrency": 4
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "project": "informatic-cat",
+  "pipeline": "character-animation",
+  "decisions": [
+    {"category": "approval_policy", "subject": "Stage gates", "choice": "full-run pre-authorization", "reason": "User chose 'Роби все одразу' in the proposal questions."},
+    {"category": "render_runtime_selection", "subject": "Composition runtime", "choice": "remotion",
+     "options_considered": [{"option": "hyperframes", "rejected_because": "user picked Remotion"}, {"option": "ffmpeg", "rejected_because": "post-processing only, not enough for character acting"}]},
+    {"category": "composition_mode", "subject": "Authoring mode", "choice": "atelier", "reason": "Single hero piece; hand-authored SVG rig and scenes."},
+    {"category": "voice_selection", "subject": "Narration TTS provider", "choice": "Magnific ElevenLabs eleven_v3, voice Ostap Shevchenko (generated)", "reason": "User approved voice + music."},
+    {"category": "voice_selection", "subject": "Narration TTS provider", "choice": "local synthesized cat 'babble' + speech bubbles",
+     "options_considered": [{"option": "Magnific ElevenLabs voice", "rejected_because": "changed: file CDN pikaso.cdnpk.net blocked by session network policy; local Ukrainian TTS install denied"}],
+     "reason": "Only path that keeps a talking character offline."},
+    {"category": "music_selection", "subject": "Background music", "choice": "Magnific Google Lyria 3 Pro (generated)"},
+    {"category": "music_selection", "subject": "Background music", "choice": "local chiptune + ukulele synth (build_audio.py)",
+     "options_considered": [{"option": "Magnific Lyria track", "rejected_because": "changed: CDN download blocked"}]}
+  ]
+}

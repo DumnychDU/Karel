@@ -80,13 +80,13 @@ const useFonts = () => {
 const FONT = "Nunito, 'DejaVu Sans', sans-serif";
 const MONO = "'JetBrains Mono', 'DejaVu Sans Mono', monospace";
 const C = {
-  night: "#1E1B4B",
-  violet: "#6D28D9",
-  lilac: "#A78BFA",
-  mint: "#34D399",
-  sunny: "#FBBF24",
-  coral: "#FB7185",
-  ink: "#1E1B4B",
+  night: "#27272A",
+  violet: "#3F3F46",
+  lilac: "#D4D4D8",
+  mint: "#F4F4F5",
+  sunny: "#FFFFFF",
+  coral: "#D4D4D8",
+  ink: "#27272A",
 };
 
 // scene windows (seconds)
@@ -156,7 +156,7 @@ const PlacedCat: React.FC<{ x: number; y: number; w: number; pose: CatPose; rot?
             width: w * 0.84,
             height: w * 0.12,
             borderRadius: "50%",
-            background: "rgba(20,10,50,0.28)",
+            background: "rgba(24,24,27,0.28)",
             filter: "blur(6px)",
           }}
         />
@@ -342,7 +342,7 @@ const Scene1: React.FC<{ t: number; lines: Line[] }> = ({ t, lines }) => {
     eyes: t > 0.5 && t < 1.3 ? "happy" : "open",
   };
   return (
-    <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 38%, #4C1D95 0%, ${C.night} 62%)`, overflow: "hidden" }}>
+    <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 38%, #52525B 0%, ${C.night} 62%)`, overflow: "hidden" }}>
       <Particles t={t} n={26} color={C.lilac} seed="s1" />
       {/* string of pixel lights */}
       {Array.from({ length: 9 }).map((_, i) => (
@@ -363,8 +363,8 @@ const Scene1: React.FC<{ t: number; lines: Line[] }> = ({ t, lines }) => {
       ))}
       <PlacedCat x={540} y={feetY} w={560} pose={pose} shadow={false} />
       {/* desk */}
-      <div style={{ position: "absolute", left: 0, top: 1640, width: 1080, height: 280, background: "#2E1065" }} />
-      <div style={{ position: "absolute", left: 0, top: 1640, width: 1080, height: 16, background: "#5B21B6" }} />
+      <div style={{ position: "absolute", left: 0, top: 1640, width: 1080, height: 280, background: "#3F3F46" }} />
+      <div style={{ position: "absolute", left: 0, top: 1640, width: 1080, height: 16, background: "#71717A" }} />
       {/* laptop screen */}
       <div
         style={{
@@ -374,10 +374,10 @@ const Scene1: React.FC<{ t: number; lines: Line[] }> = ({ t, lines }) => {
           width: 700,
           height: 430,
           borderRadius: 30,
-          background: "#CBD5E1",
+          background: "#D4D4D8",
           padding: 22,
           boxSizing: "border-box",
-          boxShadow: `0 0 120px rgba(52,211,153,${0.25 + 0.2 * rise})`,
+          boxShadow: `0 0 120px rgba(255,255,255,${0.25 + 0.2 * rise})`,
         }}
       >
         <div
@@ -385,7 +385,7 @@ const Scene1: React.FC<{ t: number; lines: Line[] }> = ({ t, lines }) => {
             width: "100%",
             height: "100%",
             borderRadius: 16,
-            background: "#0F172A",
+            background: "#18181B",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -406,7 +406,7 @@ const Scene1: React.FC<{ t: number; lines: Line[] }> = ({ t, lines }) => {
           top: 1606,
           width: 860,
           height: 46,
-          background: "#94A3B8",
+          background: "#A1A1AA",
           clipPath: "polygon(6% 0, 94% 0, 100% 100%, 0 100%)",
           borderRadius: 8,
         }}
@@ -480,11 +480,11 @@ const Scene2: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
   };
   const bgA = interpolate(joy, [0, 1], [0, 1]);
   return (
-    <AbsoluteFill style={{ background: `linear-gradient(180deg, #2E1065 0%, #3B0764 100%)`, overflow: "hidden" }}>
+    <AbsoluteFill style={{ background: `linear-gradient(180deg, #3F3F46 0%, #27272A 100%)`, overflow: "hidden" }}>
       <AbsoluteFill
         style={{
           opacity: bgA,
-          background: `repeating-conic-gradient(from ${t * 25}deg at 50% 52%, rgba(251,191,36,0.22) 0deg 10deg, rgba(0,0,0,0) 10deg 22deg), linear-gradient(180deg, #7C3AED, #C026D3)`,
+          background: `repeating-conic-gradient(from ${t * 25}deg at 50% 52%, rgba(255,255,255,0.22) 0deg 10deg, rgba(0,0,0,0) 10deg 22deg), linear-gradient(180deg, #A1A1AA, #E4E4E7)`,
         }}
       />
       {/* orbiting symbols */}
@@ -509,9 +509,9 @@ const Scene2: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
               fontFamily: star ? FONT : MONO,
               fontWeight: 900,
               fontSize: star ? 92 : 74,
-              color: star ? (i % 2 ? C.sunny : C.coral) : "#E9D5FF",
+              color: star ? (i % 2 ? C.sunny : C.coral) : "#F4F4F5",
               opacity: star ? 1 : 1 - b,
-              textShadow: star ? "0 0 30px rgba(251,191,36,0.8)" : "0 6px 0 rgba(0,0,0,0.35)",
+              textShadow: star ? "0 0 30px rgba(255,255,255,0.8)" : "0 6px 0 rgba(0,0,0,0.35)",
               whiteSpace: "nowrap",
             }}
           >
@@ -528,7 +528,7 @@ const Scene2: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
             top: 700 + ((lt * 50) % 40),
             width: 34,
             height: 50,
-            background: "#7DD3FC",
+            background: "#E4E4E7",
             borderRadius: "50% 50% 50% 50% / 60% 60% 40% 40%",
             opacity: lerpT(t, 5.2, 5.5, 0, 0.9),
           }}
@@ -543,8 +543,8 @@ const Scene2: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
 // --- scene 3: the website on a phone -----------------------------------------------
 const CARDS = [
   { icon: "📚", title: "Уроки", sub: "теорія простими словами", col: C.violet, at: 12.2 },
-  { icon: "✅", title: "Тести", sub: "перевір себе", col: "#059669", at: 13.0 },
-  { icon: "💻", title: "Задачі", sub: "програмування на практиці", col: "#E11D48", at: 13.8 },
+  { icon: "✅", title: "Тести", sub: "перевір себе", col: "#52525B", at: 13.0 },
+  { icon: "💻", title: "Задачі", sub: "програмування на практиці", col: "#71717A", at: 13.8 },
 ];
 
 const Scene3: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lines }) => {
@@ -567,13 +567,13 @@ const Scene3: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
   return (
     <AbsoluteFill
       style={{
-        background: "linear-gradient(180deg, #EDE9FE 0%, #C4B5FD 100%)",
+        background: "linear-gradient(180deg, #FAFAFA 0%, #D4D4D8 100%)",
         overflow: "hidden",
       }}
     >
       <AbsoluteFill
         style={{
-          backgroundImage: "radial-gradient(rgba(109,40,217,0.18) 4px, transparent 4px)",
+          backgroundImage: "radial-gradient(rgba(82,82,91,0.18) 4px, transparent 4px)",
           backgroundSize: "54px 54px",
           backgroundPosition: `0 ${-lt * 30}px`,
         }}
@@ -591,7 +591,7 @@ const Scene3: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
           padding: 24,
           boxSizing: "border-box",
           transform: `rotate(${(1 - ph) * -8}deg)`,
-          boxShadow: "0 40px 80px rgba(30,27,75,0.35)",
+          boxShadow: "0 40px 80px rgba(24,24,27,0.35)",
         }}
       >
         <div style={{ width: "100%", height: "100%", borderRadius: 56, background: "#fff", overflow: "hidden", position: "relative" }}>
@@ -601,7 +601,7 @@ const Scene3: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
               margin: "56px 30px 0",
               height: 86,
               borderRadius: 43,
-              background: "#F1F5F9",
+              background: "#F4F4F5",
               display: "flex",
               alignItems: "center",
               padding: "0 30px",
@@ -612,7 +612,7 @@ const Scene3: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
               gap: 16,
             }}
           >
-            <span style={{ fontSize: 34 }}>🔒</span>
+            <span style={{ fontSize: 34, filter: "grayscale(1)" }}>🔒</span>
             <span>{typed}</span>
             <Cursor t={t} color={C.violet} size={42} />
           </div>
@@ -622,7 +622,7 @@ const Scene3: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
               margin: "28px 30px 0",
               height: 280,
               borderRadius: 40,
-              background: `linear-gradient(135deg, ${C.violet}, #DB2777)`,
+              background: `linear-gradient(135deg, ${C.violet}, #27272A)`,
               color: "#fff",
               fontFamily: FONT,
               fontWeight: 900,
@@ -633,7 +633,7 @@ const Scene3: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
             }}
           >
             <div style={{ fontSize: 76, lineHeight: 1 }}>informatic</div>
-            <div style={{ fontSize: 44, marginTop: 18, color: "#FDE68A" }}>Інформатика — це цікаво!</div>
+            <div style={{ fontSize: 44, marginTop: 18, color: "#E4E4E7" }}>Інформатика — це цікаво!</div>
           </div>
           {CARDS.map((c, i) => {
             const p = springAt(t, c.at, fps, 9, 0.55);
@@ -655,10 +655,10 @@ const Scene3: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
                   opacity: p > 0.02 ? 1 : 0,
                 }}
               >
-                <div style={{ fontSize: 80 }}>{c.icon}</div>
+                <div style={{ fontSize: 80, filter: "grayscale(1)" }}>{c.icon}</div>
                 <div style={{ fontFamily: FONT }}>
                   <div style={{ fontWeight: 900, fontSize: 58, color: c.col, lineHeight: 1 }}>{c.title}</div>
-                  <div style={{ fontWeight: 800, fontSize: 32, color: "#475569", marginTop: 6 }}>{c.sub}</div>
+                  <div style={{ fontWeight: 800, fontSize: 32, color: "#71717A", marginTop: 6 }}>{c.sub}</div>
                 </div>
               </div>
             );
@@ -673,9 +673,9 @@ const Scene3: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
 
 // --- scene 4: staircase + first code --------------------------------------------
 const STEPS = [
-  { x: 220, top: 1640, col: C.violet, side: "#4C1D95" },
-  { x: 460, top: 1460, col: "#10B981", side: "#047857" },
-  { x: 700, top: 1280, col: C.coral, side: "#BE123C" },
+  { x: 220, top: 1640, col: "#3F3F46", side: "#27272A" },
+  { x: 460, top: 1460, col: "#71717A", side: "#52525B" },
+  { x: 700, top: 1280, col: "#A1A1AA", side: "#71717A" },
 ];
 const SPOTS = [
   [110, 1880],
@@ -726,7 +726,7 @@ const Scene4: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
   const nType = Math.floor(lerpT(t, 19.8, 21.0, 0, code.length, Easing.linear));
   const win = springAt(t, 19.55, fps, 12, 0.6);
   return (
-    <AbsoluteFill style={{ background: "linear-gradient(180deg, #FEF3C7 0%, #FDBA74 100%)", overflow: "hidden" }}>
+    <AbsoluteFill style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%)", overflow: "hidden" }}>
       {[0, 1, 2].map((i) => (
         <div
           key={i}
@@ -750,7 +750,7 @@ const Scene4: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
           width: 900,
           height: 360,
           borderRadius: 40,
-          background: "#0F172A",
+          background: "#18181B",
           border: `7px solid ${C.ink}`,
           boxShadow: `0 14px 0 ${C.ink}`,
           transform: `scale(${win})`,
@@ -763,11 +763,11 @@ const Scene4: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
           {[C.coral, C.sunny, C.mint].map((c) => (
             <div key={c} style={{ width: 28, height: 28, borderRadius: 14, background: c }} />
           ))}
-          <div style={{ marginLeft: 20, fontFamily: FONT, fontWeight: 800, fontSize: 30, color: "#94A3B8" }}>main.py</div>
+          <div style={{ marginLeft: 20, fontFamily: FONT, fontWeight: 800, fontSize: 30, color: "#A1A1AA" }}>main.py</div>
         </div>
-        <div style={{ fontFamily: MONO, fontWeight: 800, fontSize: 50, color: "#E2E8F0", whiteSpace: "pre" }}>
-          <span style={{ color: "#C4B5FD" }}>{code.slice(0, Math.min(nType, 5))}</span>
-          <span style={{ color: "#FDE68A" }}>{code.slice(5, nType)}</span>
+        <div style={{ fontFamily: MONO, fontWeight: 800, fontSize: 50, color: "#E4E4E7", whiteSpace: "pre" }}>
+          <span style={{ color: "#D4D4D8" }}>{code.slice(0, Math.min(nType, 5))}</span>
+          <span style={{ color: "#E4E4E7" }}>{code.slice(5, nType)}</span>
           {t < TADA && <Cursor t={t} color={C.mint} size={50} />}
         </div>
         <div style={{ fontFamily: MONO, fontWeight: 800, fontSize: 50, color: C.mint, marginTop: 24, opacity: lerpT(t, TADA - 0.1, TADA + 0.1, 0, 1) }}>
@@ -792,7 +792,7 @@ const Scene4: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
           fontFamily: FONT,
           fontWeight: 900,
           fontSize: 80,
-          color: "#fff",
+          color: C.ink,
           transform: `scale(${springAt(t, TADA, fps, 8, 0.5)}) rotate(${(1 - cheer) * -40}deg)`,
         }}
       >
@@ -819,7 +819,7 @@ const Scene4: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
           </div>
         </React.Fragment>
       ))}
-      <div style={{ position: "absolute", left: 0, top: 1880, width: 220, height: 40, background: "#B45309" }} />
+      <div style={{ position: "absolute", left: 0, top: 1880, width: 220, height: 40, background: "#3F3F46" }} />
       <PlacedCat x={x} y={y} w={300} pose={pose} />
       {/* confetti */}
       {t > TADA &&
@@ -839,7 +839,7 @@ const Scene4: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
                 width: 22,
                 height: 34,
                 borderRadius: 5,
-                background: [C.violet, C.mint, C.coral, C.sunny, "#38BDF8"][i % 5],
+                background: [C.violet, C.mint, C.coral, C.sunny, "#71717A"][i % 5],
                 transform: `rotate(${dt * 600 * (random(`cr${i}`) - 0.5)}deg)`,
               }}
             />
@@ -871,7 +871,7 @@ const Scene5: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
   const ig = springAt(t, 25.4, fps, 9, 0.6);
   const pulse = 1 + 0.05 * Math.sin(t * 8) * lerpT(t, 26, 26.3, 0, 1);
   return (
-    <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 42%, #8B5CF6 0%, #5B21B6 55%, ${C.night} 100%)`, overflow: "hidden" }}>
+    <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 42%, #A1A1AA 0%, #71717A 55%, ${C.night} 100%)`, overflow: "hidden" }}>
       <AbsoluteFill
         style={{
           background: `repeating-conic-gradient(from ${t * 18}deg at 50% 42%, rgba(255,255,255,0.08) 0deg 12deg, rgba(0,0,0,0) 12deg 24deg)`,
@@ -903,7 +903,7 @@ const Scene5: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
           boxSizing: "border-box",
         }}
       >
-        <span style={{ fontSize: 62 }}>🌐</span> informatic.website
+        <span style={{ fontSize: 62, filter: "grayscale(1)" }}>🌐</span> informatic.website
       </div>
       {/* Instagram card */}
       <div
@@ -914,7 +914,7 @@ const Scene5: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
           width: 940,
           height: 290,
           borderRadius: 54,
-          background: "linear-gradient(120deg, #F58529 0%, #DD2A7B 45%, #8134AF 75%, #515BD4 100%)",
+          background: "linear-gradient(120deg, #71717A 0%, #3F3F46 45%, #52525B 75%, #27272A 100%)",
           border: `7px solid ${C.ink}`,
           boxShadow: `0 12px 0 ${C.ink}`,
           display: "flex",
@@ -939,7 +939,7 @@ const Scene5: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
               padding: "12px 36px",
               borderRadius: 40,
               background: "#fff",
-              color: "#DD2A7B",
+              color: "#3F3F46",
               fontWeight: 900,
               fontSize: 44,
               transform: `scale(${pulse})`,
@@ -962,7 +962,7 @@ const Scene5: React.FC<{ t: number; lt: number; lines: Line[] }> = ({ t, lt, lin
                 left: 540 + (random(`hx${i}`) - 0.5) * 700 + Math.sin(dt * 3 + i) * 30,
                 top: 640 - dt * (260 + random(`hv${i}`) * 200),
                 fontSize: 50 + random(`hs${i}`) * 40,
-                color: i % 2 ? C.coral : "#F472B6",
+                color: i % 2 ? C.coral : "#52525B",
                 opacity: clamp01(1.6 - dt * 0.6),
                 fontFamily: FONT,
               }}
@@ -992,7 +992,7 @@ const Iris: React.FC<{ lt: number; cx: number; cy: number; children: React.React
             width: 2 * r,
             height: 2 * r,
             borderRadius: "50%",
-            border: `26px solid ${C.mint}`,
+            border: `26px solid #FFFFFF`,
             boxSizing: "border-box",
             boxShadow: `0 0 0 10px ${C.ink}`,
           }}

@@ -22,12 +22,12 @@ export interface CatPose {
   breathe?: number; // small scale offset
 }
 
-const GINGER = "#F59E0B";
-const GINGER_D = "#E0700F";
-const STRIPE = "#C2570C";
-const CREAM = "#FFF1D6";
-const PINK = "#FDA4AF";
-const INK = "#2A1B3D";
+const GINGER = "#A1A1AA";
+const GINGER_D = "#52525B";
+const STRIPE = "#71717A";
+const CREAM = "#FAFAFA";
+const PINK = "#D4D4D8";
+const INK = "#27272A";
 
 const Eye: React.FC<{ cx: number; cy: number; mode: EyeMode; blink: number; gx: number; gy: number; right: boolean }> = ({
   cx,
@@ -133,9 +133,9 @@ export const Cat: React.FC<{ pose: CatPose; style?: React.CSSProperties; width?:
         {arm("L", armL)}
         {arm("R", armR)}
         {/* collar + tag */}
-        <path d="M 120 326 Q 200 360 280 326" stroke="#10B981" strokeWidth={18} fill="none" strokeLinecap="round" />
-        <circle cx={200} cy={356} r={22} fill="#34D399" stroke="#047857" strokeWidth={4} />
-        <text x={200} y={364} textAnchor="middle" fontFamily="JetBrains Mono" fontWeight={800} fontSize={18} fill="#064E3B">
+        <path d="M 120 326 Q 200 360 280 326" stroke="#52525B" strokeWidth={18} fill="none" strokeLinecap="round" />
+        <circle cx={200} cy={356} r={22} fill="#F4F4F5" stroke="#3F3F46" strokeWidth={4} />
+        <text x={200} y={364} textAnchor="middle" fontFamily="JetBrains Mono" fontWeight={800} fontSize={18} fill="#27272A">
           {"</>"}
         </text>
         {/* head */}
@@ -174,7 +174,7 @@ export const Cat: React.FC<{ pose: CatPose; style?: React.CSSProperties; width?:
           <Eye cx={146} cy={222} mode={eyes} blink={blink} gx={gazeX} gy={gazeY} right={false} />
           <Eye cx={254} cy={222} mode={eyes} blink={blink} gx={gazeX} gy={gazeY} right={true} />
           {/* nose */}
-          <path d="M 188 256 Q 200 250 212 256 Q 206 268 200 270 Q 194 268 188 256 Z" fill="#F472B6" stroke={INK} strokeWidth={3} />
+          <path d="M 188 256 Q 200 250 212 256 Q 206 268 200 270 Q 194 268 188 256 Z" fill="#52525B" stroke={INK} strokeWidth={3} />
           {/* mouth */}
           {mo < 0.08 ? (
             <path d="M 200 270 v 8 M 174 276 Q 186 292 200 278 Q 214 292 226 276" stroke={INK} strokeWidth={5} strokeLinecap="round" fill="none" />
@@ -182,12 +182,12 @@ export const Cat: React.FC<{ pose: CatPose; style?: React.CSSProperties; width?:
             <g>
               <path
                 d={`M 176 ${276} Q 200 ${282 + 46 * mo} 224 ${276} Q 200 ${270} 176 ${276} Z`}
-                fill="#7F1D1D"
+                fill="#3F3F46"
                 stroke={INK}
                 strokeWidth={5}
                 strokeLinejoin="round"
               />
-              <ellipse cx={200} cy={276 + 30 * mo} rx={12 + 4 * mo} ry={6 + 4 * mo} fill="#FB7185" />
+              <ellipse cx={200} cy={276 + 30 * mo} rx={12 + 4 * mo} ry={6 + 4 * mo} fill="#D4D4D8" />
             </g>
           )}
           {/* whiskers */}
